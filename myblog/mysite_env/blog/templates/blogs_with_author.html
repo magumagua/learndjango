@@ -1,0 +1,15 @@
+{% extends 'base.html '%}
+{% block title %}
+    {{ blog.title }}
+{% endblock %}
+
+{% block nav_blog_active %}active{% endblock %}
+
+{% block content %}
+    <div>
+        <a href="{% url 'blog_list' %}"><h3><p>我的Blog</p></h3></a>
+    </div>
+    {% for blog in blogs %}
+        <a href="{% url 'blog_detail' blog.pk %}"><p>{{ blog }}</p></a>
+    {% endfor %}
+{% endblock %}
